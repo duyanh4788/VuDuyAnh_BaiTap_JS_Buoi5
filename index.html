@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bài Tập JS-B5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!--BT 1 : Quản Lý Tuyển Sinh   -->
+        <div class="card my-5">
+            <div class="card-header">
+                <h5>BT 1 : Quản Lý Tuyển Sinh</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Họ Và Tên : </p>
+                <input type="text" id="tenThiSinh" class="form-control">
+                <p class="card-text">Điểm Chuẩn : </p>
+                <input type="text" id="diemChuan" class="form-control">
+                <p class="card-text">Nhập Điểm Thi : </p>
+                <p class="card-text">Điểm Môn A : </p>
+                <input type="text" id="diemMona" class="form-control">
+                <p class="card-text">Nhập Điểm Môn B : </p>
+                <input type="text" id="diemMonb" class="form-control">
+                <p class="card-text">Nhập Điểm Môn C : </p>
+                <input type="text" id="diemMonc" class="form-control">
+
+                <p class="card-text my-3">Thuộc Khu Vực Ưu Tiên : </p>
+                <input type="radio" value="3" id="khuA" name="KhuVuc"> Khu A : (+3D)    <br>
+                <input type="radio" value="2" id="khuB" name="KhuVuc"> Khu B : (+2D) <br>
+                <input type="radio" value="1.5" id="khuC" name="KhuVuc"> Khu C : (+1.5D) <br>
+                <input type="radio" value="0" id="khuKo" name="KhuVuc"> Không Ưu Tiên <br>
+
+                <p class="card-text my-3">Thuộc Đối Tượng Ưu Tiên : </p>
+                <input type="radio" id="dTA" value="3" name="DoiTuong"> Đối Tượng A : (+3D)    <br>
+                <input type="radio" id="dTB" value="2" name="DoiTuong"> Đối Tượng B : (+2D)    <br>
+                <input type="radio" id="dTC" value="1.5" name="DoiTuong"> Đối Tượng C : (+1.5D) <br>
+                <input type="radio" id="dTKo" value="0" name="DoiTuong"> Không Ưu Tiên <br>
+
+                <button class="btn btn-success my-3" onclick="tinhDiemThi()">Tính Điểm Thi</button>
+            </div>
+            <div class="card-footer text-muted" id="thongBaoDiemThi" style="display: none;">
+
+            </div>
+        </div>
+        <!--BT 1 : Quản Lý Tuyển Sinh   -->
+
+        <!-- BT 2 : Tính Thuế Thu Nhập Cá Nhân  -->
+        <div class="card my-5">
+            <div class="card-header">
+                <h5>BT 2 : Tính Thuế Thu Nhập Cá Nhân </h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Họ Và Tên : </p>
+                <input type="text" id="tenDongThue" class="form-control">
+                <p class="card-text">Tổng Thu Nhập Năm ( x triệu đồng ) : </p>
+                <input type="text" id="tongThuNhap" class="form-control">
+                <p class="card-text">Số Người Phụ Thuộc : </p>
+                <input type="text" id="soNguoiPt" class="form-control">
+                <button class="btn btn-success my-3" onclick="tinhThue()">Tính Thuế</button>
+            </div>
+            <div class="card-footer text-muted" id="thongBaoThue" style="display: none;">
+
+            </div>
+        </div>
+        <!-- BT 2 :  Tính Thuế Thu Nhập Cá Nhân   -->
+
+        <!-- BT 3 : Tính Tiền Điện -->
+        <div class="card my-5">
+            <div class="card-header">
+                <h5>BT 3 : Tính Tiền Điện</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Họ Và Tên : </p>
+                <input type="text" id="tenDongTienDien" class="form-control">
+                <p class="card-text">Số Kw Tiêu Thụ : </p>
+                <input type="text" id="soKwTieuThu" class="form-control">
+                <button class="btn btn-success my-3" onclick="tinhTienDien()">Click</button>
+            </div>
+            <div class="card-footer text-muted" id="thongBaoTienDien" style="display: none;">
+
+            </div>
+        </div>
+        <!--  BT 3 : Tính Tiền Điện   -->
+
+        <!-- BT 4 : Tính Tiền Cáp  -->
+        <div class="card my-5">
+            <div class="card-header">
+                <h5>BT 4 : Tính Tiền Cáp</h5>
+            </div>
+            <div class="card-body">
+                <!-- Doanh Nghiệp -->
+                <p class="card-text mt-5 font-weight-bold">Nhập Mã Khách Hàng : </p>
+                <input type="text" id="maKhachHang" class="form-control">
+                <p class="card-text mt-5">Số Đầu Thu Kết Nối : </p>
+                <input type="text" id="soDauThu" class="form-control">
+                <p class="card-text">Số Kênh Thuê : </p>
+                <input type="text" id="kenhThue" class="form-control">
+                <p class="card-text mt-5">Số Tiền Phải Đóng : </p>
+                <input type="text" id="doanhNghiepDongTien" class="form-control">
+                
+                <!-- Button -->
+                <button class="btn btn-success my-3" onclick="tinhTienCap()">Tính Tiền Cáp</button>
+            </div>
+
+            <!-- Thông Báo -->
+            <div class="card-footer text-muted" id="thongBaoTienCap" style="display: none;"></div>
+
+        </div>
+        <!-- BT 4 : Tính Tiền Cáp  -->
+    </div>
+
+
+
+    <script src="./main.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
